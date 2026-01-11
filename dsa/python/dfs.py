@@ -15,7 +15,7 @@ class Node:
 def dfs(root: Node):
 
     for child in root.children:
-        if OK(child)
+        if OK(child):
             return FOUND(child)
         dfs(child)
 

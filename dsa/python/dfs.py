@@ -12,9 +12,7 @@ class Node:
     children = []
     value = None
 
-def dfs(root: Node) -> List[Node]:
-
-    nodes = []
+def dfs(root: Node):
 
     for child in root.children:
         if OK(child)

@@ -8,7 +8,7 @@ class Node:
     value = None
 
 
-
+NOT_FOUND = -1
 
 def bfs(root: Node):
 

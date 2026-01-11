@@ -1,12 +1,14 @@
+# Ideal for finding the shortest path or
+# exploring nodes layer by layer.
+
 from collections import deque
-import queue
 
 class Node:
     children = []
     value = None
 
 
-NOT_FOUND = -1
+
 
 def bfs(root: Node):
 

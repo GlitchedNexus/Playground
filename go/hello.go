@@ -20,21 +20,23 @@ func Hello(language, name string) string {
 		name = "World"
 	}
 
+	return GetPrefix(language) + name
+}
+
+func GetPrefix(language string) string {
 	language = strings.ToLower(language)
+	prefix := englishHelloPrefix
 
-	if language == "spanish" {
-		return spanishHelloPrefix + name
+	switch language {
+	case "spanish":
+		prefix = spanishHelloPrefix
+	case "french":
+		prefix = frenchHelloPrefix
+	case "hindi":
+		prefix = hindiHelloPrefix
 	}
 
-	if language == "french" {
-		return frenchHelloPrefix + name
-	}
-
-	if language == "hindi" {
-		return hindiHelloPrefix + name
-	}
-
-	return englishHelloPrefix + name
+	return prefix
 }
 
 func main() {

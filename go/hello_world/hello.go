@@ -23,9 +23,8 @@ func Hello(language, name string) string {
 	return GetPrefix(language) + name
 }
 
-func GetPrefix(language string) string {
+func GetPrefix(language string) (prefix string) {
 	language = strings.ToLower(language)
-	prefix := englishHelloPrefix
 
 	switch language {
 	case "spanish":
@@ -34,9 +33,11 @@ func GetPrefix(language string) string {
 		prefix = frenchHelloPrefix
 	case "hindi":
 		prefix = hindiHelloPrefix
+	default:
+		prefix = englishHelloPrefix
 	}
 
-	return prefix
+	return
 }
 
 func main() {

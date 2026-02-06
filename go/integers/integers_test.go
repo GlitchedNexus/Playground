@@ -14,6 +14,11 @@ func TestAdder(t *testing.T) {
 	}
 }
 
+// Parsed by pkgsite and coompiler
+// and act as source of truth for your
+// code.
+//
+// Also incuded in test files for your code.
 func ExampleAdd() {
 	sum := Add(1, 5)
 	fmt.Println(sum)

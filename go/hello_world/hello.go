@@ -1,4 +1,4 @@
-package main
+package hello
 
 import (
 	"fmt"
@@ -23,6 +23,10 @@ func Hello(language, name string) string {
 	return GetPrefix(language) + name
 }
 
+// Naming the return value makes it available
+// as a local variable and also let's text editors
+// show the name fo return value with the
+// function signature.
 func GetPrefix(language string) (prefix string) {
 	language = strings.ToLower(language)
 

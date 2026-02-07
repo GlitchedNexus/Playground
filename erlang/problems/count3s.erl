@@ -1,6 +1,17 @@
 -module(count3s).
--export([count3s/1]).
 
-count3s([]) -> 0.
-count3s([3 | Tail]) -> 1 + count3s(Tail).
-count3s([_Other | Tail]) -> count3s(Tail).
+-import(rand, [uniform/1]).
+
+-export([count3s/2, rlist/2]).
+
+count3s([], Acc) ->
+    Acc;
+count3s([3 | Tail], Acc) ->
+    count3s(Tail, Acc + 1);
+count3s([_Other | Tail], Acc) ->
+    count3s(Tail, Acc).
+
+rlist(0, _) ->
+    [];
+rlist(N, Lim) ->
+    [rand:uniform(Lim) | rlist(N - 1, Lim)].

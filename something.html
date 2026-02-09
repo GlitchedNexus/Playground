@@ -1,0 +1,168 @@
+%-------------------------
+% Updated for: Raghav Awasthi — AI & Data Science Intern
+%------------------------
+
+\documentclass[letterpaper,10pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{graphicx}
+\input{glyphtounicode}
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\fancyfoot[L]{\includegraphics[height=1.2cm]{footer.png}}
+
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+\pdfgentounicode=1
+
+% Commands
+\newcommand{\resumeItem}[1]{\item\small{{#1 \vspace{-2pt}}}}
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+\newcommand{\resumeProjectHeading}[2]{
+  \item
+  \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+  \end{tabular*}\vspace{-7pt}
+}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+
+%------------------------- RESUME -------------------------
+
+\begin{document}
+
+%----------HEADING----------
+\begin{center}
+    {\Huge \scshape Raghav Awasthi} \\ \vspace{1pt}
+    \small Vancouver, BC $|$
+    \href{mailto:rawasthi.official@gmail.com}{\underline{rawasthi.official@gmail.com}} $|$
+    \href{tel:+1-905-782-8691}{\underline{905-782-8691}} $|$
+    \href{https://raghavawasthi.dev}{\underline{raghavawasthi.dev}}\\
+    \href{https://linkedin.com/in/raghav-awasthi}{\underline{linkedin.com/in/raghav-awasthi}} $|$
+    \href{https://github.com/GlitchedNexus}{\underline{github.com/GlitchedNexus}}
+\end{center}
+
+%-----------EXPERIENCE-----------
+\section{Experience}
+\resumeSubHeadingListStart
+
+\resumeSubheading
+  {Freelance Web Developer}{Aug 2025 -- Dec 2025}
+  {Sai Reiki \& Nature Healing}{Remote}
+\resumeItemListStart
+  \resumeItem{Coordinated the full delivery of a \textbf{27-page production system}, organizing \textbf{requirements}, \textbf{timelines}, and iterative reviews with non-technical stakeholders.}
+  \resumeItem{Designed structured content pipelines using \textbf{Astro Content Collections} and \textbf{schema validation}, improving workflow reliability and maintainability.}
+  \resumeItem{Integrated external \textbf{APIs} (\textbf{Calendly}, \textbf{Resend}) and executed \textbf{QA workflows} to validate business logic, user flows, and deployment readiness.}
+  \resumeItem{Implemented reusable \textbf{UI components} and content models supporting consistent structure, metadata, and searchability.}
+  \resumeItem{Produced clear \textbf{technical documentation} on workflows, architecture, and content modelling for long-term maintainability.}
+\resumeItemListEnd
+
+\resumeSubHeadingListEnd
+
+%-----------PROJECTS-----------
+\section{Technical Projects}
+\resumeSubHeadingListStart
+
+% Café Analysis
+\resumeProjectHeading{\textbf{Café Pricing \& Retention Analysis} $|$ \textbf{Python}, \textbf{ML}, Data Analytics}{\href{https://github.com/GlitchedNexus/cafe-loyalty}{\underline{GitHub}}}
+\resumeItemListStart
+    \resumeItem{Analyzed \textbf{$\sim$69K transactions} to evaluate pricing, customer retention, and behavioural segments; engineered dataset features for \textbf{ML experimentation}.}
+    \resumeItem{Developed a \textbf{Random Forest} churn model with \textbf{ROC/PR evaluation} and documented results for non-technical audiences.}
+    \resumeItem{Applied unsupervised methods (\textbf{KMeans}, \textbf{RFM segmentation}) to discover revenue-driving customer cohorts.}
+    \resumeItem{Built \textbf{visualizations} and reports summarizing key trends, enabling clear communication to stakeholders.}
+    \resumeItem{Implemented a modular data analysis pipeline enabling \textbf{reproducible experiments} and sensitivity studies.}
+\resumeItemListEnd
+
+% Tesseract
+\resumeProjectHeading{\textbf{Tesseract ML Engine} $|$ \textbf{Rust}, \textbf{Parallel ML}, \textbf{Numerical Computing}}{\href{https://github.com/GlitchedNexus/tesseract}{\underline{GitHub}}}
+\resumeItemListStart
+  \resumeItem{Developed a modular numerical/ML engine using a multi-crate \textbf{Cargo workspace} (core, IO, models, optimizers) for clean separation of algorithms and data structures.}
+  \resumeItem{Implemented \textbf{all mathematical and ML logic from scratch} using \textbf{nalgebra} for linear algebra, enabling complete control over algorithmic behaviour.}
+  \resumeItem{Added \textbf{parallel training and inference} using \textbf{Rayon}, accelerating linear algebra and model evaluation workflows.}
+  \resumeItem{Integrated fast model serialization via \textbf{Serde} and \textbf{rkyv} to support reproducible experimentation.}
+  \resumeItem{Built \textbf{Criterion.rs} benchmark suites to track performance regressions and guide optimization.}
+\resumeItemListEnd
+
+% InsightUBC
+\resumeProjectHeading{\textbf{InsightUBC Automated Query Dashboard} $|$ \textbf{TypeScript}, \textbf{Next.js}, \textbf{Express}}{\href{https://github.com/GlitchedNexus/InsightUBC}{\underline{GitHub}}}
+\resumeItemListStart
+  \resumeItem{Developed an interactive \textbf{Next.js} dashboard enabling dataset exploration, filtering, aggregation, and real-time visualization.}
+  \resumeItem{Built a modular \textbf{Express.js REST API} with typed schema validation, transformation stages, and persistent storage.}
+  \resumeItem{Designed reusable \textbf{shadcn/ui} components and \textbf{TailwindCSS} workflows for analytics-focused user flows.}
+  \resumeItem{Implemented comprehensive \textbf{E2E tests} (\textbf{Mocha + Chai-as-Promised}) validating ingestion, query correctness, and error handling.}
+  \resumeItem{Optimized client–server communication for improved responsiveness under large dataset loads.}
+\resumeItemListEnd
+
+% Filo
+\resumeProjectHeading{\textbf{Filo Distributed Storage System} $|$ \textbf{Go}, \textbf{AWS}, \textbf{Prometheus}}{\href{https://github.com/GlitchedNexus/filo}{\underline{GitHub}}}
+\resumeItemListStart
+  \resumeItem{Architected a distributed storage system with orchestration on \textbf{AWS EC2} and automatic cold-data tiering to \textbf{Amazon S3}.}
+  \resumeItem{Implemented a custom \textbf{TCP transport layer} with framed control messages and stream gating for protocol correctness.}
+  \resumeItem{Built an observability stack using \textbf{Prometheus + Grafana} to monitor node health, performance, and \textbf{$P_{99}$ latency}.}
+  \resumeItem{Designed deterministic \textbf{content-addressable storage} layouts ensuring collision resistance and reproducible retrieval.}
+  \resumeItem{Added optional \textbf{AES-CTR encryption} with IV handling and transparent decrypt-on-receive logic for secure in-transit data.}
+\resumeItemListEnd
+
+\resumeSubHeadingListEnd
+
+%-----------EDUCATION-----------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {University of British Columbia}{Vancouver, BC}
+      {B.Sc. Computer Science and Mathematics}{Sep 2022 -- May 2027}
+      \resumeItemListStart
+        \resumeItem{\textbf{Dean's List (2024)}, \textbf{Dean's Honour List (2023)}.}
+      \resumeItemListEnd
+  \resumeSubHeadingListEnd
+
+%-----------SKILLS-----------
+\section{Technical Skills}
+\begin{itemize}[leftmargin=0.15in, label={}]
+\small{
+    \item{
+     \textbf{AI/ML:} Supervised \& Unsupervised Learning, \textbf{Feature Engineering}, \textbf{ROC/PR evaluation}, Numerical Methods, Parallel Algorithms \\
+     \textbf{Tools:} Python, SQL, \textbf{Power BI} (beginner), GitHub, \textbf{Docker}, \textbf{Prometheus}, \textbf{Grafana}, SharePoint, Vercel \\
+     \textbf{Cloud:} \textbf{AWS (EC2/S3)}, familiarity with \textbf{Databricks} workflows \\
+     \textbf{Languages:} Python, Go, Rust, TypeScript, JavaScript, Java, C \\
+     \textbf{Workflow \& Documentation:} Experiment Tracking, \textbf{Data Pipelines}, Reporting, Technical Documentation, \textbf{QA/Test Planning}
+    }
+}
+\end{itemize}
+
+\end{document}

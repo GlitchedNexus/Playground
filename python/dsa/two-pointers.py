@@ -50,7 +50,7 @@ class Node:
 def middle_of_linked_list(head: Node) -> Node:
     slow, fast = head, head
 
-    while fast and fast.next:
+    while fast and fast.next and slow.next:
         fast = fast.next.next
         slow = slow.next
 

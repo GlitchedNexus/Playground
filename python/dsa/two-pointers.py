@@ -55,4 +55,3 @@ def middle_of_linked_list(head: Node) -> Node:
         slow = slow.next
 
     return slow.val
-

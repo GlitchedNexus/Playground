@@ -40,34 +40,14 @@ func ConvertToRoman(arabic int) string {
 }
 
 func ConvertToArabic(roman string) int {
-	index := 0
-	result := 0
+	arabic := 0
 
-	for _, i := range allRomanNumerals {
-		if len(roman) <= index {
-			return result
+	for _, numeral := range allRomanNumerals {
+		for strings.HasPrefix(roman, numeral.Symbol) {
+			arabic += numeral.Value
+			roman = strings.TrimPrefix(roman, numeral.Symbol)
 		}
-		curr := roman[index:]
-		value := i.Value
-		symbol := i.Symbol
-
-		if curr == "" {
-			return result
-		}
-
-		count := 0
-		for strings.HasPrefix(curr, symbol) {
-			index += len(symbol)
-			count++
-			if len(roman) <= index {
-				break
-			}
-			curr = roman[index:]
-		}
-
-		result += value * count
-
 	}
 
-	return result
+	return arabic
 }

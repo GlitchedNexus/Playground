@@ -2,7 +2,7 @@ from django.http import HttpResponse, HttpResponseNotAllowed
 from django.shortcuts import redirect, render
 
 from .forms import PersonForm, TodoForm
-from .models import Todo
+from .models import Person, Todo
 
 
 # Create your views here.
@@ -37,8 +37,7 @@ def post_example(request):
         if form.is_valid():
             name = form.cleaned_data["name"]
             age = form.cleaned_data["age"]
-            job = form.cleaned_data["job"]
-            return HttpResponse(f"Your posted: {name}, {age}, {job}")
+            return HttpResponse(f"Your posted: {name}, {age}")
     else:
         return HttpResponseNotAllowed(["POST"])
 
@@ -66,7 +65,7 @@ def todos_view(request):
     if request.method == "POST":
         form = TodoForm(request.POST)
         if form.is_valid():
-            todo = form.save()
+            form.save()
             return HttpResponse("Todo Successfully Created!")
 
     else:
@@ -77,3 +76,36 @@ def todos_view(request):
         return render(request, "todos/todos.html", {"form": form, "todos": todos})
     # else:
     #     return HttpResponseNotAllowed(["POST", "GET"])
+
+
+def register_view(request):
+    if request.method == "POST":
+        form = PersonForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponse("Account Successfully Created!")
+    else:
+        form = TodoForm()
+
+        todos = Todo.objects.all()
+
+        return render(request, "todos/submit.html", {"form": form, "todos": todos})
+
+
+def person_details(request, person_id):
+    person = Person.objects.filter(id=person_id).first()
+
+    return render(request, "todos/person_details.html", {"person": person})
+
+
+def delete_todo(request, todo_id):
+    todo = Todo.objects.filter(id=todo_id).first()
+    todo.delete()
+    return HttpResponse("Entry successfully deleted from the database.")
+
+
+def toggle_todo(request, todo_id):
+    todo = Todo.objects.filter(id=todo_id).first()
+    todo.done = not todo.done
+    todo.save()
+    return HttpResponse("Request complete.")

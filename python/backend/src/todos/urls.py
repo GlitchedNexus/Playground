@@ -14,4 +14,8 @@ urlpatterns = [
     path("submit_django", views.submit_django_form, name="submit_django"),
     path("templating", views.template_view, name="templating"),
     path("todos", views.todos_view, name="todos"),
+    path("register", views.register_view, name="register"),
+    path("person_details/<int:person_id>", views.person_details, name="person_details"),
+    path("delete_todo/<int:todo_id>", views.delete_todo, name="person_details"),
+    path("toggle_todo/<int:todo_id>", views.toggle_todo, name="toggle_todo"),
 ]

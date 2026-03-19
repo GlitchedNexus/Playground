@@ -1,14 +1,13 @@
 <!doctype html>
 <html>
     <head>
-        <title>Page Title</title>
+        <title>Register User</title>
     </head>
     <body>
         <form method="POST" action="{% url 'hello_post' %}">
             {% csrf_token %}
             <input type="text" name="name" placeholder="John Doe" />
             <input type="number" name="age" placeholder="" />
-            <input type="text" name="job" />
             <button type="submit">Send Post</button>
         </form>
     </body>

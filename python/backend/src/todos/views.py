@@ -1,16 +1,17 @@
 from django.http import HttpResponse, HttpResponseNotAllowed
 from django.shortcuts import redirect, render
+from models import Todo
 
 from .forms import PersonForm
 
 
 # Create your views here.
 def hello_world_view(request):
-    return HttpResponse(b"Hello World")
+    return HttpResponse("Hello World")
 
 
 def health_view(request):
-    return HttpResponse(b"Backend Online")
+    return HttpResponse("Backend Online")
 
 
 def hello_html_view(request):
@@ -18,11 +19,11 @@ def hello_html_view(request):
 
 
 def hello_path(request, name):
-    return HttpResponse(f"Hello {name}".encode("utf-8"))
+    return HttpResponse(f"Hello {name}")
 
 
 def hello_query(request):
-    return HttpResponse(f"Your query was: {request.GET.get('q')}".encode("utf-8"))
+    return HttpResponse(f"Your query was: {request.GET.get('q')}")
 
 
 def special_view(request):
@@ -37,9 +38,9 @@ def post_example(request):
             name = form.cleaned_data["name"]
             age = form.cleaned_data["age"]
             job = form.cleaned_data["job"]
-            return HttpResponse(f"Your posted: {name}, {age}, {job}".encode("utf-8"))
+            return HttpResponse(f"Your posted: {name}, {age}, {job}")
     else:
-        return HttpResponseNotAllowed(["Post"])
+        return HttpResponseNotAllowed(["POST"])
 
 
 def submit_example(request):
@@ -59,3 +60,14 @@ def template_view(request):
     }
 
     return render(request, "todos/template_demo.html", context)
+
+
+def todos_view(request):
+    if request.method == "POST":
+        pass
+    elif request.method == "GET":
+        todos = Todo.objects.all()
+
+        return render(request, "todos/todos.html", {"todos": todos})
+    else:
+        return HttpResponseNotAllowed(["POST", "GET"])

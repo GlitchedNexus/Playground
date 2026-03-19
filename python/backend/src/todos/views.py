@@ -49,3 +49,13 @@ def submit_example(request):
 def submit_django_form(request):
     form = PersonForm()
     return render(request, "todos/submit_django_form.html", {"form": form})
+
+
+def template_view(request):
+    context = {
+        "name": "Mike",
+        "age": 21,
+        "skills": ["Python", "SQL"],
+    }
+
+    return render(request, "todos/template_demo.html", context)

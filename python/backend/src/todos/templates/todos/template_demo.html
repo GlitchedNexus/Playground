@@ -1,5 +1,5 @@
-{% extends 'todos/base.html' %} {% block title %}Templating{% endblock %} {%
-block content %}
+{% extends 'todos/base.html' %} {% block title %}Templating{% endblock %}
+{%block content %}
 <h1>{{ name }}</h1>
 <h1>{{ age }}</h1>
 
@@ -15,4 +15,4 @@ block content %}
 <p>{{ name }} knows Django.</p>
 {% else %}
 <p>{{ name }} doesn't know a lot.</p>
-{% endif %}{% endblock %}
+{% endif %} {% endblock %}

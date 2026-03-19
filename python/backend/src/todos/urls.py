@@ -9,8 +9,9 @@ urlpatterns = [
     path("helloname/<str:name>", views.hello_path, name="hello_name"),
     path("helloquery", views.hello_query, name="hello_query"),
     path("hello_redirect", views.special_view, name="hello_redict"),
-    path("hellopost", views.post_example, name="hello_post"),
+    path("hello_post", views.post_example, name="hello_post"),
     path("submit_endpoint", views.submit_example, name="submit_example"),
     path("submit_django", views.submit_django_form, name="submit_django"),
     path("templating", views.template_view, name="templating"),
+    path("todos", views.todos_view, name="todos"),
 ]

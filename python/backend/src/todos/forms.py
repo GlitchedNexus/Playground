@@ -12,7 +12,7 @@ class PersonForm(forms.ModelForm):
 class TodoForm(forms.ModelForm):
     class Meta:
         model = Todo
-        fields = ["title", "description", "done", "deadline", "priority"]
+        fields = ["title", "description", "done", "deadline", "importance"]
         widgets = {
             "deadline": forms.DateInput(attrs={"type": "date"}),
         }

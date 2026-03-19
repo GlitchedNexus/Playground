@@ -9,10 +9,10 @@ class Person(models.Model):
         return f"{self.id} - {self.name}"
 
 
-class PriorityChoices(models.IntegerChoices):
-    LOW = 1, "Low"
-    MEDIUM = 2, "Medium"
-    HIGH = 3, "High"
+class ImportanceChoices(models.TextChoices):
+    LOW = "Low"
+    MEDIUM = "Medium"
+    HIGH = "High"
 
 
 class Todo(models.Model):
@@ -20,8 +20,8 @@ class Todo(models.Model):
     description = models.CharField(max_length=500)
     done = models.BooleanField(default=False)
     deadline = models.DateField(null=True, blank=True)
-    priority = models.IntegerField(
-        choices=PriorityChoices.choices, null=True, blank=True
+    importance = models.CharField(
+        choices=ImportanceChoices.choices, null=True, blank=True
     )
 
     owner = models.ForeignKey(

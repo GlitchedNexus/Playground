@@ -8,6 +8,6 @@ admin.site.register(Person)
 
 @admin.register(Todo)
 class TodoAdmin(admin.ModelAdmin):
-    list_display = ("title", "priority", "deadline", "done")
+    list_display = ("title", "importance", "deadline", "done")
     search_fields = ("title",)
-    list_filter = ("priority", "deadline")
+    list_filter = ("importance", "deadline")

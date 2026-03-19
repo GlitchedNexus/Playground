@@ -64,16 +64,16 @@ def template_view(request):
 
 def todos_view(request):
     if request.method == "POST":
-        form = TodoForm()
+        form = TodoForm(request.POST)
         if form.is_valid():
             todo = form.save()
             return HttpResponse("Todo Successfully Created!")
 
-    elif request.method == "GET":
+    else:
         form = TodoForm()
 
         todos = Todo.objects.all()
 
         return render(request, "todos/todos.html", {"form": form, "todos": todos})
-    else:
-        return HttpResponseNotAllowed(["POST", "GET"])
+    # else:
+    #     return HttpResponseNotAllowed(["POST", "GET"])

@@ -7,4 +7,5 @@ requires-python = ">=3.14"
 dependencies = [
     "django>=6.0.3",
     "django-stubs>=6.0.1",
+    "pylint-django>=2.7.0",
 ]

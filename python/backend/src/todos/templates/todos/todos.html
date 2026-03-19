@@ -1,13 +1,13 @@
-{% extends 'todos/base.html' %} {% block title %}Todos{% endblock %} {% block
-content %}
+{% extends 'todos/base.html' %} {% block title %}Todos{% endblock %} 
+{%block content %}
 <ul>
-    {% for todo in todos %}
-    <li><b>{{ todo.id }} - {{ todo.title }}:</b> (Done: {{todo.done}})</li>
-    {% endfor %}
+  {% for todo in todos %}
+  <li><b>{{ todo.id }} - {{ todo.title }}:</b> (Done: {{todo.done}}, Owner: {{todo.owner.name}})</li>
+  {% endfor %}
 </ul>
 
 <form method="post">
-    {% csrf_token %} {{ form.as_p }}
-    <button type="submit">Save</button>
+  {% csrf_token %} {{ form.as_p }}
+  <button type="submit">Save</button>
 </form>
 {% endblock %}

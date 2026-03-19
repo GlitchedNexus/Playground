@@ -8,5 +8,6 @@ dependencies = [
     "django>=6.0.3",
     "django-stubs>=6.0.1",
     "gunicorn>=25.1.0",
+    "psycopg2-binary>=2.9.11",
     "pylint-django>=2.7.0",
 ]

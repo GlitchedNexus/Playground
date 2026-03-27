@@ -22,10 +22,17 @@ func (s StubFailingFS) Open(name string) (fs.File, error) {
 }
 
 func TestNewBlogPosts(t *testing.T) {
+	const (
+		firstBody = `Title: Post 1
+Description: Description 1`
+		secondBody = `Title: Post 2
+Description: Description 2`
+	)
+
 	t.Run("", func(t *testing.T) {
 		fs := fstest.MapFS{
-			"hello world.md":  {Data: []byte("Title: Post 1")},
-			"hello-world2.md": {Data: []byte("Title: Post 2")},
+			"hello world.md":  {Data: []byte(firstBody)},
+			"hello-world2.md": {Data: []byte(secondBody)},
 		}
 
 		posts, err := blogposts.NewPostsFromFS(fs)
@@ -38,12 +45,10 @@ func TestNewBlogPosts(t *testing.T) {
 			t.Errorf("\nGOT:    %d posts\nWANTED: %d posts\n", len(posts), len(fs))
 		}
 
-		got := posts[0]
-		want := blogposts.Post{Title: "Post 1"}
-
-		if !reflect.DeepEqual(got, want) {
-			t.Errorf("\nGOT:    %+v posts\nWANTED: %+v posts\n", got, want)
-		}
+		assertPost(t, posts[0], blogposts.Post{
+			Title:       "Post 1",
+			Description: "Description 1",
+		})
 	})
 
 	t.Run("", func(t *testing.T) {
@@ -53,4 +58,11 @@ func TestNewBlogPosts(t *testing.T) {
 			t.Error("Exprected error got nil.")
 		}
 	})
+}
+
+func assertPost(t testing.TB, got, want blogposts.Post) {
+	t.Helper()
+	if !reflect.DeepEqual(got, want) {
+		t.Errorf("\nGOT:    %+v posts\nWANTED: %+v posts\n", got, want)
+	}
 }

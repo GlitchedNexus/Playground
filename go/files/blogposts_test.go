@@ -24,8 +24,8 @@ func (s StubFailingFS) Open(name string) (fs.File, error) {
 func TestNewBlogPosts(t *testing.T) {
 	t.Run("", func(t *testing.T) {
 		fs := fstest.MapFS{
-			"hello world.md":  {Data: []byte("hi")},
-			"hello-world2.md": {Data: []byte("hola")},
+			"hello world.md":  {Data: []byte("Title: Post 1")},
+			"hello-world2.md": {Data: []byte("Title: Post 2")},
 		}
 
 		posts, err := blogposts.NewPostsFromFS(fs)
@@ -42,9 +42,10 @@ func TestNewBlogPosts(t *testing.T) {
 		want := blogposts.Post{Title: "Post 1"}
 
 		if !reflect.DeepEqual(got, want) {
-			t.Errorf("\nGOT:    %+v\nWANTED: %+v\n", got, want)
+			t.Errorf("\nGOT:    %+v posts\nWANTED: %+v posts\n", got, want)
 		}
 	})
+
 	t.Run("", func(t *testing.T) {
 		_, err := blogposts.NewPostsFromFS(StubFailingFS{})
 

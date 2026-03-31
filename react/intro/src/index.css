@@ -1,0 +1,14 @@
+.container {
+    display: flex;
+    /*grid-template-columns: auto, auto;*/
+    background-color: dodgerblue;
+}
+
+.container div {
+    background-color: #f1f1f1;
+    border: 1px solid black;
+    padding: 10px;
+    font-size: 30px;
+    width: 50%;
+    text-align: center;
+}
